@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>🚀 Multi-Tool Hub</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
+        body { background: #0f0f0f; color: #fff; text-align: center; padding: 20px; }
+        h1 { text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .tool {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tool:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px cyan;
+        }
+
+        h2 { font-size: 18px; margin-bottom: 15px; }
+
+        button, input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+
+        input {
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+        }
+
+        input::placeholder {
+            color: rgba(255,255,255,0.5);
+        }
+
+        button {
+            background: cyan;
+            color: black;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: lime;
+        }
+
+        .search-bar {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <h1>🚀 Multi-Tool Hub</h1>
+
+    <!-- Search Bar -->
+    <input type="text" id="searchBar" class="search-bar" placeholder="Search for tools..." onkeyup="searchTools()">
+    
+    <div class="container">
+        <!-- AI Tools Section -->
+        <div class="tool" id="ageCalculatorTool">
+            <h2>💡 Age Calculator</h2>
+            <input type="date" id="ageInput" placeholder="Enter your birthdate">
+            <button onclick="calculateAge()">Calculate Age</button>
+            <p id="ageResult"></p>
+        </div>
+
+        <!-- PDF Editor Tool -->
+        <div class="tool" id="pdfEditorTool">
+            <h2>📄 PDF Editor Tool</h2>
+            <button onclick="alert('Coming Soon!')">Open PDF Editor</button>
+        </div>
+
+        <!-- Funny Meme Script -->
+        <div class="tool" id="memeScriptTool">
+            <h2>😂 Meme Generator</h2>
+            <button onclick="alert('Coming Soon!')">Generate Meme</button>
+        </div>
+
+        <!-- AI Thumbnail Generator -->
+        <div class="tool" id="thumbnailGeneratorTool">
+            <h2>🎮 Thumbnail Generator</h2>
+            <button onclick="alert('Coming Soon!')">Generate Thumbnail</button>
+        </div>
+
+        <!-- AI Viral Content Generator -->
+        <div class="tool" id="contentGeneratorTool">
+            <h2>🚀 Viral Content Generator</h2>
+            <button onclick="alert('Coming Soon!')">Generate Content</button>
+        </div>
+
+        <!-- Image Enhancer Tool -->
+        <div class="tool" id="imageEnhancerTool">
+            <h2>🖼 Image Enhancer</h2>
+            <button onclick="alert('Coming Soon!')">Enhance Image</button>
+        </div>
+
+        <!-- AI Noise Canceller -->
+        <div class="tool" id="noiseCancellerTool">
+            <h2>🔊 Noise Canceller</h2>
+            <button onclick="alert('Coming Soon!')">Remove Noise</button>
+        </div>
+
+        <!-- Logo Maker Tool -->
+        <div class="tool" id="logoMakerTool">
+            <h2>🖌 Logo Maker</h2>
+            <button onclick="alert('Coming Soon!')">Create Logo</button>
+        </div>
+
+        <!-- AI Mood Recommender -->
+        <div class="tool" id="moodRecommenderTool">
+            <h2>😊 Mood Recommender</h2>
+            <button onclick="alert('Coming Soon!')">Recommend Activities</button>
+        </div>
+
+        <!-- SEO Website Analysis -->
+        <div class="tool" id="seoAnalysisTool">
+            <h2>📊 SEO Website Analysis</h2>
+            <input type="url" id="seoInput" placeholder="Enter website URL">
+            <button onclick="analyzeSEO()">Analyze</button>
+            <p id="seoResult"></p>
+        </div>
+    </div>
+
+    <script>
+        // Age Calculator
+        function calculateAge() {
+            let birthdate = new Date(document.getElementById("ageInput").value);
+            let age = new Date().getFullYear() - birthdate.getFullYear();
+            document.getElementById("ageResult").innerText = `You are ${age} years old.`;
+        }
+
+        // SEO Website Analysis
+        function analyzeSEO() {
+            let seoUrl = document.getElementById("seoInput").value;
+            document.getElementById("seoResult").innerText = `SEO analysis for ${seoUrl} is coming soon!`;
+        }
+
+        // Search Tools Functionality
+        function searchTools() {
+            let query = document.getElementById("searchBar").value.toLowerCase();
+            let tools = document.querySelectorAll(".tool");
+            tools.forEach(function(tool) {
+                if (tool.id.toLowerCase().includes(query)) {
+                    tool.style.display = "block";
+                } else {
+                    tool.style.display = "none";
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
